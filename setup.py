@@ -26,7 +26,7 @@ setup(
     name='flashcards',
     version='0.1.0',
     license='BSD',
-    description='small cli tool to study using fl',
+    description='small cli tool to study using flashcards',
     long_description='%s\n%s' % (
         re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.rst')),
         re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
@@ -48,7 +48,7 @@ setup(
         'Operating System :: POSIX',
         'Operating System :: Microsoft :: Windows',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
+        # 'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
@@ -63,6 +63,7 @@ setup(
         'Topic :: Utilities',
     ],
     keywords=[
+        'flashcards'
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
     install_requires=[
