@@ -1,5 +1,5 @@
 import unittest
-from flashcards import Flashcard
+import flashcards
 
 
 class TestFlashcard(unittest.TestCase):
@@ -14,9 +14,9 @@ class TestFlashcard(unittest.TestCase):
                              "thing that pops in my mind, hu? what do you think about that? "
                              "I guess you din't think at all about what I'm thinking.")
         self.keywords = "lorem, ipsum, pretium"
-        self.fc_short = Flashcard(topic=self.topic, content=self.short_content)
-        self.fc_long = Flashcard(topic=self.topic, content=self.long_content,
-                                 keywords=self.keywords)
+        self.fc_short = flashcards.Flashcard(topic=self.topic, content=self.short_content)
+        self.fc_long = flashcards.Flashcard(topic=self.topic, content=self.long_content,
+                                            keywords=self.keywords)
 
     def test_format_data_lower_than_max(self):
         format_content = self.fc_short.format_data(self.short_content, len(self.short_content) + 10)
@@ -48,6 +48,7 @@ class TestFlashcard(unittest.TestCase):
     def test_get_lines_to_draw(self):
         get_lines_to_draw = self.fc_short.get_lines_to_draw()
         self.assertEqual(len(get_lines_to_draw), 13)
+
 
 if __name__ == '__main__':
     unittest.main()
