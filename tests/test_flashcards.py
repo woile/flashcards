@@ -7,24 +7,32 @@ class TestFlashcard(unittest.TestCase):
     def setUp(self):
         self.topic = "Dolor sit amet"
         self.short_content = "I am a short content"
-        self.long_content = ("I am a very long content, I'm used to test, that does not look like "
-                             "a really meaningful purpose but Im okay with that, I'm the best "
-                             "content there is and no one will be better than me. "
-                             "This actually has to be a bit longer, so I'll just write first "
-                             "thing that pops in my mind, hu? what do you think about that? "
-                             "I guess you din't think at all about what I'm thinking.")
+        self.long_content = ("I am a very long content, I'm used to test, that "
+                             "does not look like "
+                             "a really meaningful purpose but Im okay with "
+                             "that, I'm the best content there "
+                             "is and no one will be better than me. "
+                             "This actually has to be a bit longer, so I'll "
+                             "just write first thing that pops in my "
+                             "mind, hu? what do you think about that? "
+                             "I guess you din't think at all about what "
+                             "I'm thinking.")
         self.keywords = "lorem, ipsum, pretium"
-        self.fc_short = flashcards.Flashcard(topic=self.topic, content=self.short_content)
-        self.fc_long = flashcards.Flashcard(topic=self.topic, content=self.long_content,
+        self.fc_short = flashcards.Flashcard(topic=self.topic,
+                                             content=self.short_content)
+        self.fc_long = flashcards.Flashcard(topic=self.topic,
+                                            content=self.long_content,
                                             keywords=self.keywords)
 
     def test_format_data_lower_than_max(self):
-        format_content = self.fc_short.format_data(self.short_content, len(self.short_content) + 10)
+        format_content = self.fc_short.format_data(self.short_content,
+                                                   len(self.short_content) + 10)
         # import ipdb; ipdb.set_trace()
         self.assertEqual(len(format_content), 1)
 
     def test_format_data_not_lower_than_max(self):
-        format_content = self.fc_short.format_data(self.short_content, len(self.short_content) - 2)
+        format_content = self.fc_short.format_data(self.short_content,
+                                                   len(self.short_content) - 2)
         self.assertNotEqual(len(format_content), 3)
 
     def test_get_topic(self):
@@ -47,7 +55,7 @@ class TestFlashcard(unittest.TestCase):
 
     def test_get_lines_to_draw(self):
         get_lines_to_draw = self.fc_short.get_lines_to_draw()
-        self.assertEqual(len(get_lines_to_draw), 13)
+        self.assertEqual(len(get_lines_to_draw), 14)
 
 
 if __name__ == '__main__':
