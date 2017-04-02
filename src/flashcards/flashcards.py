@@ -13,9 +13,10 @@ BORDER = '*'
 class Flashcard:
     """Representation of a flashcard.
 
-    It has two states, which are handled by the variable hide_content, as the name suggests,
-    it will display a message in the placeholder of the content, telling the user to press a key
-    to continue, and next, it will show the content.
+    It has two states, which are handled by the variable hide_content, as the
+    name suggests, it will display a message in the placeholder of the content,
+    telling the user to press a key to continue, and next, it will show the
+    content.
     """
 
     def __init__(self, topic, content, keywords=None, max_card_width=MAX_WIDTH,
@@ -30,7 +31,7 @@ class Flashcard:
     def format_data(self, line, max_length):
         """Processes raw data.
 
-        :param line: contains the raw data which may include tabs, new lines, etc.
+        :param line: contains raw data which may include tabs, new lines, etc.
         :type line: str
         :param max_length: max length of each element of the array generated.
         :type max_length: int
@@ -91,7 +92,8 @@ class Flashcard:
 
         if self.hide_content:
             initial_content = 'Press [Enter] to show content'
-            content_lines += self.format_data(initial_content, self.max_card_width)
+            content_lines += self.format_data(initial_content,
+                                              self.max_card_width)
         else:
             content_lines += formatted_content
 
@@ -111,7 +113,8 @@ class Flashcard:
 
         content_lines += [''] * (height - current_height)
 
-        return [self.style_on_line(l, self.max_card_width) for l in content_lines]
+        return [self.style_on_line(l, self.max_card_width)
+                for l in content_lines]
 
     def get_keywords(self):
         """Generate the keywords lines ready to be displayed.
@@ -166,7 +169,7 @@ class Flashcard:
         """Execute the flashcard.
 
         It will transition between this states:
-        1) Content is hidden and will request the user to press a key to continue.
+        1) Content is hidden and will wait for an input to continue.
         2) Content is shown.
         """
         self.clean()
