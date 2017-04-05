@@ -16,8 +16,8 @@ Overview
       - | |version| |wheel| |supported-versions| |supported-implementations|
         | |commits-since|
 
-.. |docs| image:: https://readthedocs.org/projects/flashcards/badge/?style=flat
-    :target: https://readthedocs.org/projects/flashcards
+.. |docs| image:: https://readthedocs.org/projects/python-flashcards/badge/?style=flat
+    :target: https://readthedocs.org/projects/python-flashcards
     :alt: Documentation Status
 
 .. |travis| image:: https://travis-ci.org/woile/flashcards.svg?branch=master
@@ -60,12 +60,12 @@ Installation
 
 ::
 
-    pip install flashcards
+    pip install python-flashcards
 
 Documentation
 =============
 
-https://flashcards.readthedocs.io/
+https://python-flashcards.readthedocs.io/
 
 Development
 ===========
