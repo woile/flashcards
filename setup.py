@@ -23,7 +23,7 @@ def read(*names, **kwargs):
 
 
 setup(
-    name='flashcards',
+    name='python-flashcards',
     version='0.1.0',
     license='BSD',
     description='small cli tool to study using flashcards',
