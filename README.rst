@@ -40,13 +40,13 @@ Overview
     :alt: PyPI Wheel
     :target: https://pypi.python.org/pypi/flashcards
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/flashcards.svg
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/python-flashcards.svg
     :alt: Supported versions
-    :target: https://pypi.python.org/pypi/flashcards
+    :target: https://pypi.python.org/pypi/python-flashcards
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/flashcards.svg
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/python-flashcards.svg
     :alt: Supported implementations
-    :target: https://pypi.python.org/pypi/flashcards
+    :target: https://pypi.python.org/pypi/python-flashcards
 
 
 .. end-badges
@@ -96,13 +96,14 @@ Being ``keyword`` the only optional.
 Usage
 =====
 
+Let's supouse ``anatomy.yaml`` is your file with information related to anatomy.
+
 ::
 
     flashcards anatomy.yaml
 
 
-Where ``anatomy.yaml`` is your file with information related to anatomy.
-
+If you want the cards in order:
 
 ::
 
