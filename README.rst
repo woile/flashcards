@@ -84,9 +84,36 @@ How does this work
     topic: The topic I will say out loud
     content: The information I'll check after saying out loud what I know
     keywords: reference, words
+  -
+    topic: Python
+    content: Is a widely used high-level programming language for general-purpose programming,
+      created by Guido van Rossum and first released in 1991.
+    keywords: programming, language
 
 
 Being ``keyword`` the only optional.
+
+Usage
+=====
+
+::
+
+    flashcards anatomy.yaml
+
+
+Where ``anatomy.yaml`` is your file with information related to anatomy.
+
+
+::
+
+    flashcards --ordered meds.yaml
+
+For more help:
+
+::
+
+    flashcards -h
+
 
 Documentation
 =============
