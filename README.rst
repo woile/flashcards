@@ -56,7 +56,7 @@ small cli tool to study using fl
 * Free software: BSD license
 
 
-.. image:: examples/out.gif
+.. image:: docs/out.gif
 
 
 Installation
