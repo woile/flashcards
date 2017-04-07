@@ -79,11 +79,11 @@ How does this work
 ``YAML`` format:
 
 .. code-block:: yaml
+
   -
-    topic: Python
-    content: Is a widely used high-level programming language for general-purpose programming,
-    created by Guido van Rossum and first released in 1991.
-    keywords: programming, language
+    topic: The topic I will say out loud
+    content: The information I'll check after saying out loud what I know
+    keywords: reference, words
 
 
 Being ``keyword`` the only optional.
