@@ -34,9 +34,12 @@ extlinks = {
     'issue': ('https://github.com/woile/flashcards/issues/%s', '#'),
     'pr': ('https://github.com/woile/flashcards/pull/%s', 'PR #'),
 }
-import sphinx_py3doc_enhanced_theme
-html_theme = "sphinx_py3doc_enhanced_theme"
-html_theme_path = [sphinx_py3doc_enhanced_theme.get_html_theme_path()]
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+
+if not on_rtd:
+    import sphinx_py3doc_enhanced_theme
+    html_theme = "sphinx_py3doc_enhanced_theme"
+    html_theme_path = [sphinx_py3doc_enhanced_theme.get_html_theme_path()]
 html_theme_options = {
     'githuburl': 'https://github.com/woile/flashcards/'
 }
