@@ -126,14 +126,12 @@ class Flashcard:
         topic_lines += ['']
         return [self.style_on_line(l, self.max_card_width) for l in topic_lines]
 
-    def get_lines_to_draw(self, show_placeholder, border=BORDER):
+    def get_lines_to_draw(self, show_placeholder=False, border=BORDER):
         """Central connection where all the lines generated are unified.
 
         :returns: lines to be shown
         :rtype: list
         """
-        if show_placeholder is None:
-            show_placeholder = False
 
         lines = ['\n']  # starts with a new line
 
@@ -163,7 +161,7 @@ class Flashcard:
     def draw(self, show_placeholder=False):
         """Draw the generated lines."""
         self.clean()
-        lines = self.get_lines_to_draw(show_placeholder)
+        lines = self.get_lines_to_draw(show_placeholder=show_placeholder)
         for line in lines:
             print(line)
 

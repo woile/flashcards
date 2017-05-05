@@ -24,15 +24,15 @@ class TestFlashcard(unittest.TestCase):
                                             content=self.long_content,
                                             keywords=self.keywords)
 
-    def test_format_data_lower_than_max(self):
-        format_content = self.fc_short.format_data(self.short_content,
-                                                   len(self.short_content) + 10)
+    def test_format_raw_lower_than_max(self):
+        format_content = self.fc_short.format_raw(self.short_content,
+                                                  len(self.short_content) + 10)
         # import ipdb; ipdb.set_trace()
         self.assertEqual(len(format_content), 1)
 
-    def test_format_data_not_lower_than_max(self):
-        format_content = self.fc_short.format_data(self.short_content,
-                                                   len(self.short_content) - 2)
+    def test_format_raw_not_lower_than_max(self):
+        format_content = self.fc_short.format_raw(self.short_content,
+                                                  len(self.short_content) - 2)
         self.assertNotEqual(len(format_content), 3)
 
     def test_get_topic(self):
@@ -41,12 +41,12 @@ class TestFlashcard(unittest.TestCase):
 
     def test_get_short_content_height_equal_to_minimum(self):
         self.fc_short.hide_content = False
-        content_parsed = self.fc_short.get_content()
+        content_parsed = self.fc_short.get_content(self.short_content)
         self.assertEqual(len(content_parsed), self.fc_short.min_content_height)
 
     def test_get_long_content(self):
         self.fc_long.hide_content = False
-        content_parsed = self.fc_long.get_content()
+        content_parsed = self.fc_long.get_content(self.long_content)
         self.assertEqual(len(content_parsed), 8)
 
     def test_get_keywords(self):
@@ -55,6 +55,11 @@ class TestFlashcard(unittest.TestCase):
 
     def test_get_lines_to_draw(self):
         get_lines_to_draw = self.fc_short.get_lines_to_draw()
+        self.assertEqual(len(get_lines_to_draw), 14)
+
+    def test_get_lines_to_draw_with_placeholder(self):
+        get_lines_to_draw = self.fc_short.get_lines_to_draw(
+            show_placeholder=True)
         self.assertEqual(len(get_lines_to_draw), 14)
 
 
