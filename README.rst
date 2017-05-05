@@ -62,8 +62,6 @@ small cli tool to study using fl
 Installation
 ============
 
-The module still does not support python2, so if python3 is not your default, use pip3
-
 ::
 
     pip3 install python-flashcards
