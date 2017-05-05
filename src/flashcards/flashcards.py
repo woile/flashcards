@@ -16,10 +16,11 @@ BORDER = '*'
 class Flashcard:
     """Representation of a flashcard.
 
-    It has two states, which are handled by the variable hide_content, as the
-    name suggests, it will display a message in the show_placeholder of the content,
-    telling the user to press a key to continue, and next, it will show the
-    content.
+    It has two states.
+    First a placeholder is displayed, and the user is requested
+    to press a key to continue.
+    Second, the content is shown, and the user is requested to press
+    a key to shown next flashcard or to finish.
     """
 
     def __init__(self, topic, content, keywords=None, max_card_width=MAX_WIDTH,
@@ -29,7 +30,6 @@ class Flashcard:
         self.topic = topic
         self.content = content
         self.keywords = keywords
-        self.hide_content = True
 
     def format_raw(self, line, max_length):
         """Processes raw data.

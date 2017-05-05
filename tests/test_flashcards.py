@@ -1,5 +1,5 @@
 import unittest
-import flashcards
+from flashcards import flashcards
 
 
 class TestFlashcard(unittest.TestCase):
