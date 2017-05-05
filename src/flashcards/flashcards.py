@@ -28,7 +28,7 @@ class Flashcard:
         self.keywords = keywords
         self.hide_content = True
 
-    def format_data(self, line, max_length):
+    def format_raw(self, line, max_length):
         """Processes raw data.
 
         :param line: contains raw data which may include tabs, new lines, etc.
@@ -76,11 +76,11 @@ class Flashcard:
         """
 
         topic_lines = ['']
-        topic_lines += self.format_data(self.topic, self.max_card_width)
+        topic_lines += self.format_raw(self.topic, self.max_card_width)
         topic_lines += ['']
         return [self.style_on_line(l, self.max_card_width) for l in topic_lines]
 
-    def get_content(self):
+    def get_content(self, content):
         """Generate the content lines ready to be displayed.
 
         :returns: lines ready to be shown.
@@ -88,14 +88,9 @@ class Flashcard:
         """
 
         content_lines = ['']
-        formatted_content = self.format_data(self.content, self.max_card_width)
+        formatted_content = self.format_raw(content, self.max_card_width)
 
-        if self.hide_content:
-            initial_content = 'Press [Enter] to show content'
-            content_lines += self.format_data(initial_content,
-                                              self.max_card_width)
-        else:
-            content_lines += formatted_content
+        content_lines += formatted_content
 
         content_lines += ['']
 
@@ -124,7 +119,7 @@ class Flashcard:
         """
 
         topic_lines = ['']
-        topic_lines += self.format_data(self.keywords, self.max_card_width)
+        topic_lines += self.format_raw(self.keywords, self.max_card_width)
         topic_lines += ['']
         return [self.style_on_line(l, self.max_card_width) for l in topic_lines]
 
@@ -147,7 +142,10 @@ class Flashcard:
         lines.append(horizontal_border)
         lines.append(horizontal_border)
 
-        lines += self.get_content()
+        if self.hide_content:
+            lines += self.get_content('Press [Enter] to show content')
+        else:
+            lines += self.get_content(self.content)
 
         if self.keywords:
             lines.append(horizontal_border)
