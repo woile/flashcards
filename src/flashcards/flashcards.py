@@ -1,12 +1,12 @@
 # import argparse
 from __future__ import print_function
-from future.builtins.misc import input
 
-import textwrap
 import os
 import random
-import yaml
+import textwrap
 
+import yaml
+from future.builtins.misc import input
 
 MAX_WIDTH = 70
 MIN_CONTENT_HEIGHT = 6
