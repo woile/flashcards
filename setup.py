@@ -46,9 +46,9 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Operating System :: Unix',
         'Operating System :: POSIX',
-        'Operating System :: Microsoft :: Windows',
+        # 'Operating System :: Microsoft :: Windows',
         'Programming Language :: Python',
-        # 'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
@@ -67,7 +67,8 @@ setup(
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
     install_requires=[
-        'PyYAML==3.12'
+        'PyYAML==3.12',
+        'future==0.16.0'
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
     ],
     extras_require={

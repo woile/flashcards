@@ -1,4 +1,7 @@
 # import argparse
+from __future__ import print_function
+from future.builtins.misc import input
+
 import textwrap
 import os
 import random
@@ -14,7 +17,7 @@ class Flashcard:
     """Representation of a flashcard.
 
     It has two states, which are handled by the variable hide_content, as the
-    name suggests, it will display a message in the placeholder of the content,
+    name suggests, it will display a message in the show_placeholder of the content,
     telling the user to press a key to continue, and next, it will show the
     content.
     """
@@ -123,12 +126,14 @@ class Flashcard:
         topic_lines += ['']
         return [self.style_on_line(l, self.max_card_width) for l in topic_lines]
 
-    def get_lines_to_draw(self, border=BORDER):
+    def get_lines_to_draw(self, show_placeholder, border=BORDER):
         """Central connection where all the lines generated are unified.
 
         :returns: lines to be shown
         :rtype: list
         """
+        if show_placeholder is None:
+            show_placeholder = False
 
         lines = ['\n']  # starts with a new line
 
@@ -142,7 +147,7 @@ class Flashcard:
         lines.append(horizontal_border)
         lines.append(horizontal_border)
 
-        if self.hide_content:
+        if show_placeholder:
             lines += self.get_content('Press [Enter] to show content')
         else:
             lines += self.get_content(self.content)
@@ -155,36 +160,34 @@ class Flashcard:
         lines.append(horizontal_border)
         return lines
 
-    def draw(self):
+    def draw(self, show_placeholder=False):
         """Draw the generated lines."""
-        lines = self.get_lines_to_draw()
+        self.clean()
+        lines = self.get_lines_to_draw(show_placeholder)
         for line in lines:
             print(line)
-
-        self.hide_content = not self.hide_content
 
     def run(self):
         """Execute the flashcard.
 
         It will transition between this states:
-        1) Content is hidden and will wait for an input to continue.
-        2) Content is shown.
+        1) Content shows the placeholder and will wait for an input to continue.
+        2) Content is shown and will wait for an input to continue.
         """
-        self.clean()
+        self.draw(show_placeholder=True)
+        input()
         self.draw()
+        input()
 
 
 def run_flashcards(flashcards, ordered):
     if not ordered:
         random.shuffle(flashcards)
     for fc in flashcards:
-        for _ in range(2):
             fc.run()
-            input()
 
 
 def start(args):
-    # args = get_arguments()
     file_name = args.file_name
     ordered = args.ordered
 
