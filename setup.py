@@ -24,7 +24,7 @@ def read(*names, **kwargs):
 
 setup(
     name='python-flashcards',
-    version='0.2.0',
+    version='0.3.0',
     license='BSD',
     description='small cli tool to study using flashcards',
     long_description='%s\n%s' % (

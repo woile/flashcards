@@ -36,7 +36,8 @@ class TestFlashcard(unittest.TestCase):
         self.assertNotEqual(len(format_content), 3)
 
     def test_get_topic(self):
-        topic_parsed = self.fc_short.get_topic()
+        topic = self.fc_short.topic
+        topic_parsed = self.fc_short.get_topic(topic)
         self.assertEqual(len(topic_parsed), 3)
 
     def test_get_short_content_height_equal_to_minimum(self):

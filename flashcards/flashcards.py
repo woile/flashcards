@@ -71,7 +71,7 @@ class Flashcard:
         else:
             os.system('cls')
 
-    def get_topic(self):
+    def get_topic(self, topic):
         """Generate the topic lines ready to be displayed.
 
         :returns: lines ready to be shown.
@@ -79,7 +79,7 @@ class Flashcard:
         """
 
         topic_lines = ['']
-        topic_lines += self.format_raw(self.topic, self.max_card_width)
+        topic_lines += self.format_raw(topic, self.max_card_width)
         topic_lines += ['']
         return [self.style_on_line(l, self.max_card_width) for l in topic_lines]
 
@@ -126,7 +126,8 @@ class Flashcard:
         topic_lines += ['']
         return [self.style_on_line(l, self.max_card_width) for l in topic_lines]
 
-    def get_lines_to_draw(self, show_placeholder=False, border=BORDER):
+    def get_lines_to_draw(self, show_placeholder=False, 
+            border=BORDER, inverted=False):
         """Central connection where all the lines generated are unified.
 
         :returns: lines to be shown
@@ -140,15 +141,20 @@ class Flashcard:
 
         lines.append(horizontal_border)
 
-        lines += self.get_topic()
-
-        lines.append(horizontal_border)
-        lines.append(horizontal_border)
+        topic = self.get_topic(self.topic)
+        content = self.get_content(self.content)
 
         if show_placeholder:
-            lines += self.get_content('Press [Enter] to show content')
-        else:
-            lines += self.get_content(self.content)
+            placeholder = 'Press [Enter] to show text'
+            if inverted:
+                topic = self.get_topic(placeholder)
+            else:
+                content = self.get_content(placeholder)
+
+        lines += topic
+        lines.append(horizontal_border)
+        lines.append(horizontal_border)
+        lines += content
 
         if self.keywords:
             lines.append(horizontal_border)
@@ -158,36 +164,38 @@ class Flashcard:
         lines.append(horizontal_border)
         return lines
 
-    def draw(self, show_placeholder=False):
+    def draw(self, show_placeholder=False, inverted=False):
         """Draw the generated lines."""
         self.clean()
-        lines = self.get_lines_to_draw(show_placeholder=show_placeholder)
+        lines = self.get_lines_to_draw(inverted=inverted, 
+                show_placeholder=show_placeholder)
         for line in lines:
             print(line)
 
-    def run(self):
+    def run(self, inverted=False):
         """Execute the flashcard.
 
         It will transition between this states:
         1) Content shows the placeholder and will wait for an input to continue.
         2) Content is shown and will wait for an input to continue.
         """
-        self.draw(show_placeholder=True)
+        self.draw(show_placeholder=True, inverted=inverted)
         input()
         self.draw()
         input()
 
 
-def run_flashcards(flashcards, ordered):
+def run_flashcards(flashcards, ordered, inverted):
     if not ordered:
         random.shuffle(flashcards)
     for fc in flashcards:
-            fc.run()
+            fc.run(inverted=inverted)
 
 
 def start(args):
     file_name = args.file_name
     ordered = args.ordered
+    inverted = args.inverted
 
     flashcards = []
 
@@ -197,4 +205,4 @@ def start(args):
         for data in parsed_file:
             fc = Flashcard(**data)
             flashcards.append(fc)
-    run_flashcards(flashcards, ordered)
+    run_flashcards(flashcards, ordered, inverted)

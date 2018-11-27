@@ -45,6 +45,8 @@ def get_arguments():
                         help='YML file with flashcards content')
     parser.add_argument('-O', '--ordered', action="store_true", default=False,
                         help='Show cards keeping the file order')
+    parser.add_argument('-I', '--inverted', action="store_true", default=False,
+                        help='Hide the topic instead of the content')
     return parser.parse_args()
 
 
