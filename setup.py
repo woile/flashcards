@@ -28,7 +28,11 @@ setup(
     license='BSD',
     description='small cli tool to study using flashcards',
     long_description='%s\n%s' % (
-        re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.rst')),  # flake8: noqa
+        # flake8: noqa
+        re.compile(
+            '^.. start-badges.*^.. end-badges', 
+            re.M | re.S).sub('', read('README.rst')
+        ),
         re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
     ),
     author='Santiago Fraire Willemoes',
