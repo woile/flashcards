@@ -42,11 +42,11 @@ Overview
 
 .. |supported-versions| image:: https://img.shields.io/pypi/pyversions/python-flashcards.svg
     :alt: Supported versions
-    :target: https://pypi.python.org/pypi/python-flashcards
+    :target: https://pypi.org/project/python-flashcards/
 
 .. |supported-implementations| image:: https://img.shields.io/pypi/implementation/python-flashcards.svg
     :alt: Supported implementations
-    :target: https://pypi.python.org/pypi/python-flashcards
+    :target: https://pypi.org/project/python-flashcards/
 
 
 .. end-badges

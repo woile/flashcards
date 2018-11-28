@@ -1,6 +1,6 @@
 graft docs
 graft examples
-graft src
+graft flashcards
 graft ci
 graft tests
 

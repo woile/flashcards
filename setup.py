@@ -34,9 +34,9 @@ setup(
     author='Santiago Fraire Willemoes',
     author_email='santiwilly@gmail.com',
     url='https://github.com/woile/flashcards',
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
-    py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
+    packages=find_packages('flashcards'),
+    package_dir={'': 'flashcards'},
+    py_modules=[splitext(basename(path))[0] for path in glob('flashcards/*.py')],
     include_package_data=True,
     zip_safe=False,
     classifiers=[
