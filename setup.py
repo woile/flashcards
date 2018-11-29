@@ -25,12 +25,12 @@ def read(*names, **kwargs):
 setup(
     name='python-flashcards',
     version='0.3.0',
-    license='BSD',
+    license='MIT',
     description='small cli tool to study using flashcards',
     long_description='%s\n%s' % (
         # flake8: noqa
         re.compile(
-            '^.. start-badges.*^.. end-badges', 
+            '^.. start-badges.*^.. end-badges',
             re.M | re.S).sub('', read('README.rst')
         ),
         re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
@@ -38,8 +38,7 @@ setup(
     author='Santiago Fraire Willemoes',
     author_email='santiwilly@gmail.com',
     url='https://github.com/woile/flashcards',
-    packages=find_packages('flashcards'),
-    package_dir={'': 'flashcards'},
+    packages=find_packages(exclude=("tests",)),
     py_modules=[splitext(basename(path))[0] for path in glob('flashcards/*.py')],
     include_package_data=True,
     zip_safe=False,
@@ -83,7 +82,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'flashcards = flashcards.cli:main',
+            'flashcards=flashcards.cli:main',
         ]
     },
 )

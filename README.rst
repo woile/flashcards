@@ -14,7 +14,6 @@ Overview
         | |codecov|
     * - package
       - | |version| |wheel| |supported-versions| |supported-implementations|
-        | |commits-since|
 
 .. |docs| image:: https://readthedocs.org/projects/python-flashcards/badge/?style=flat
     :target: https://readthedocs.org/projects/python-flashcards
@@ -28,17 +27,13 @@ Overview
     :alt: Coverage Status
     :target: https://codecov.io/github/Woile/flashcards
 
-.. |version| image:: https://img.shields.io/pypi/v/flashcards.svg
+.. |version| image:: https://img.shields.io/pypi/v/python-flashcards.svg
     :alt: PyPI Package latest release
-    :target: https://pypi.python.org/pypi/flashcards
+    :target: https://pypi.python.org/pypi/python-flashcards
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/woile/flashcards/v0.1.0.svg
-    :alt: Commits since latest release
-    :target: https://github.com/woile/flashcards/compare/v0.1.0...master
-
-.. |wheel| image:: https://img.shields.io/pypi/wheel/flashcards.svg
+.. |wheel| image:: https://img.shields.io/pypi/wheel/python-flashcards.svg
     :alt: PyPI Wheel
-    :target: https://pypi.python.org/pypi/flashcards
+    :target: https://pypi.python.org/pypi/python-flashcards
 
 .. |supported-versions| image:: https://img.shields.io/pypi/pyversions/python-flashcards.svg
     :alt: Supported versions
@@ -108,6 +103,12 @@ If you want the cards in order:
 ::
 
     flashcards --ordered meds.yaml
+
+If you want to show the hide the topic instead of the content:
+
+::
+
+    flashcards --inverted meds.yaml
 
 For more help:
 
