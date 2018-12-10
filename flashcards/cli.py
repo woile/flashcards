@@ -41,7 +41,7 @@ def get_arguments():
     formater = argparse.RawDescriptionHelpFormatter
     parser = argparse.ArgumentParser(prog='flashcards', description=description,
                                      formatter_class=formater)
-    parser.add_argument('file_name', metavar='FILE_NAME',
+    parser.add_argument('file_names', metavar='FILE_NAME', nargs='+',
                         help='YML file with flashcards content')
     parser.add_argument('-O', '--ordered', action="store_true", default=False,
                         help='Show cards keeping the file order')
