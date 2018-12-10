@@ -193,16 +193,18 @@ def run_flashcards(flashcards, ordered, inverted):
 
 
 def start(args):
-    file_name = args.file_name
+    file_names = args.file_names
     ordered = args.ordered
     inverted = args.inverted
 
     flashcards = []
 
-    with open(file_name) as stream:
-        # no exception handling here, let yaml exceptions do their job
-        parsed_file = yaml.load(stream)
-        for data in parsed_file:
-            fc = Flashcard(**data)
-            flashcards.append(fc)
+    for file_name in file_names:
+        with open(file_name) as stream:
+            # no exception handling here, let yaml exceptions do their job
+            parsed_file = yaml.load(stream)
+            for data in parsed_file:
+                fc = Flashcard(**data)
+                flashcards.append(fc)
+
     run_flashcards(flashcards, ordered, inverted)
