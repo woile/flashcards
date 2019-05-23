@@ -71,7 +71,7 @@ setup(
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
     install_requires=[
-        'PyYAML==3.12',
+        'PyYAML==5.1',
         'future==0.17.1'
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
     ],
