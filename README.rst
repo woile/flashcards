@@ -91,7 +91,7 @@ Being ``keyword`` the only optional.
 Usage
 =====
 
-Let's supouse ``anatomy.yaml`` is your file with information related to anatomy.
+Let's suppose ``anatomy.yaml`` is your file with information related to anatomy.
 
 ::
 
