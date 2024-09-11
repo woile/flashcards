@@ -72,7 +72,7 @@ setup(
     ],
     install_requires=[
         'PyYAML==5.4',
-        'future==0.18.3'
+        'future==1.0.0'
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
     ],
     extras_require={
